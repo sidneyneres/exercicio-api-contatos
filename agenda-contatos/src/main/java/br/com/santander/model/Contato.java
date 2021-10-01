@@ -15,7 +15,6 @@ public class Contato {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
 	private String nome;
 	private String sobrenome;
 	private String apelido;
