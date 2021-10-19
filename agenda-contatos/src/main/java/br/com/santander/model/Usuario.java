@@ -29,7 +29,6 @@ public class Usuario implements UserDetails {
 	private Set<Perfil> perfis = new HashSet<>();
 
 	public Usuario(Integer id, String email, String senha, Set<Perfil> perfis) {
-		super();
 		this.id = id;
 		this.email = email;
 		this.senha = senha;

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,13 +21,13 @@ public class Contato {
 	private String apelido;
 	private LocalDate dataNascimento;
 
-	@OneToMany(mappedBy = "contato")
+	@OneToMany(mappedBy = "contato", cascade = CascadeType.ALL)
 	private List<Telefone> telefone = new ArrayList<>();
 
-	@OneToMany(mappedBy = "contato")
+	@OneToMany(mappedBy = "contato", cascade = CascadeType.ALL)
 	private List<Endereco> endereco = new ArrayList<>();
 
-	@OneToMany(mappedBy = "contato")
+	@OneToMany(mappedBy = "contato", cascade = CascadeType.ALL)
 	private List<Email> email = new ArrayList<>();
 
 	public Contato() {
@@ -109,37 +110,5 @@ public class Contato {
 				+ ", dataNascimento=" + dataNascimento + ", telefone=" + telefone + ", endereco=" + endereco
 				+ ", email=" + email + "]";
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Contato other = (Contato) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
-				return false;
-		} else if (!telefone.equals(other.telefone))
-			return false;
-		return true;
-	}
-
 	
 }

@@ -19,7 +19,6 @@ public class Perfil implements GrantedAuthority {
 	private String nome;
 
 	public Perfil(Integer id, String nome) {
-		super();
 		this.id = id;
 		this.nome = nome;
 	}

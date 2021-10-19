@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.santander.config.TokenService;
+import br.com.santander.dto.TokenDto;
 
 @RestController
 @RequestMapping("/auth")
@@ -33,7 +34,7 @@ public class AutenticacaoController {
 			
 			Authentication authentication = authManager.authenticate(dadosLogin);
 			String token = tokenService.geraToken(authentication);
-			return ResponseEntity.ok().build();
+			return ResponseEntity.ok(new TokenDto(token,"Bearer"));
 		} catch (AuthenticationException e){
 			return ResponseEntity.badRequest().build();
 		}
