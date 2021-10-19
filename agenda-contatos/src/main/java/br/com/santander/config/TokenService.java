@@ -13,12 +13,12 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class TokenService {
 
-	private String chave = "$TQ(TQ$RQ)K(RQGKQAGFW";
+	private String chave = "1234";
 	private Integer expiracao = 1800000;
 
 	public String geraToken(Authentication authenticate) {
 		Usuario usuario = (Usuario) authenticate.getPrincipal();
-		Date hoje = new Date();
+		Date hoje = new Date(); 
 		Date DataExpiracao = new Date(hoje.getTime() + expiracao);
 		return Jwts.builder()
 				.setSubject(usuario.getId().toString())

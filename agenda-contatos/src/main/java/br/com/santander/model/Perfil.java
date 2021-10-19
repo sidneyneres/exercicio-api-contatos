@@ -27,12 +27,16 @@ public class Perfil implements GrantedAuthority {
 	protected Perfil() {
 	}
 
+	@Override
+	public String getAuthority() {
+		return nome;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
-	@Override
-	public String getAuthority() {
+	public String getNome() {
 		return nome;
 	}
 

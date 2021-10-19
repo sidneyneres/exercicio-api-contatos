@@ -1,0 +1,1 @@
+insert into usuario(id, email, senha) values(null, 'sidney@email.com', '$2a$10$qCjxuVew5zyQYWOOmOVqh.Pe9GMlqThFONf./tAgp6ILikDyP/80m');
